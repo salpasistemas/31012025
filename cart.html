@@ -215,10 +215,14 @@
       try {
         let response = await fetch(googleAppsScriptUrl, {
           method: "POST",
+          mode: "cors",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-        let result = await response.text();
+        if (!response.ok) {
+          throw new Error("HTTP error " + response.status);
+        }
+        let result = await response.json();
         console.log(result);
         alert("Datos enviados a Google Sheets exitosamente!");
       } catch (err) {
