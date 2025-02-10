@@ -1,196 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito - Online Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Titillium Web', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-            color: #333;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: #658c68;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            text-decoration: none;
-        }
-
-        .logo {
-            height: 50px;
-            width: auto;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            color: white;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .cart-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-
-        .cart-items {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .cart-items li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .quantity-button {
-            background-color: #658c68;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-        }
-
-        .cart-total {
-            margin-top: 2rem;
-            text-align: right;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #658c68;
-        }
-
-        .back-button {
-            display: inline-block;
-            background-color: #658c68;
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - Online Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Titillium Web', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      color: #333;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #658c68;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-decoration: none;
+    }
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: white;
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .cart-container {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cart-items li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-item-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .quantity-button {
+      background-color: #658c68;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+    }
+    .cart-total {
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #658c68;
+    }
+    .back-button {
+      display: inline-block;
+      background-color: #658c68;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    /* "Enviar" button styling */
+    #sendExcelButton {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #658c68;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="index.html" class="brand">
-                <img src="./logo.png" alt="Salpa Logo" class="logo">
-                <h1>Preventa Verano 2026</h1>
-            </a>
-        </div>
-    </header>
-
-    <div class="container">
-        <a href="index.html" class="back-button">← Volver a la tienda</a>
-        
-        <div class="cart-container">
-            <h2>🛒 Carrito de Compras</h2>
-            <ul class="cart-items" id="cartItems"></ul>
-            <div class="cart-total">
-                Total: $<span id="cartTotal">0.00</span>
-            </div>
-        </div>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="brand">
+        <img src="./logo.png" alt="Salpa Logo" class="logo">
+        <h1>Preventa Verano 2026</h1>
+      </a>
     </div>
+  </header>
 
-    <script>
-        function getCart() {
-            return JSON.parse(localStorage.getItem('cart')) || [];
+  <div class="container">
+    <a href="index.html" class="back-button">← Volver a la tienda</a>
+    <div class="cart-container">
+      <h2>🛒 Carrito de Compras</h2>
+      <ul class="cart-items" id="cartItems"></ul>
+      <div class="cart-total">
+        Total: $<span id="cartTotal">0.00</span>
+      </div>
+      <!-- "Enviar" button to trigger data submission to Google Sheets -->
+      <button id="sendExcelButton">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve cart data from localStorage
+    function getCart() {
+      return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    // Save cart data and update display
+    function saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    // Update the quantity of a specific product
+    function updateQuantity(productName, delta) {
+      const cart = getCart();
+      const item = cart.find(item => item.name === productName);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          const index = cart.indexOf(item);
+          cart.splice(index, 1);
         }
+        saveCart(cart);
+      }
+    }
 
-        function saveCart(cart) {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart();
-        }
+    // Display cart items and total
+    function displayCart() {
+      const cart = getCart();
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      
+      cartItems.innerHTML = '';
+      let total = 0;
 
-        function updateQuantity(productName, delta) {
-            const cart = getCart();
-            const item = cart.find(item => item.name === productName);
-            if (item) {
-                item.quantity += delta;
-                if (item.quantity <= 0) {
-                    const index = cart.indexOf(item);
-                    cart.splice(index, 1);
-                }
-                saveCart(cart);
-            }
-        }
+      cart.forEach(item => {
+        const itemTotal = item.quantity * item.price * (1 - item.discount / 100);
+        total += itemTotal;
 
-        function displayCart() {
-            const cart = getCart();
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            
-            cartItems.innerHTML = '';
-            let total = 0;
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div class="cart-item-info">
+            <span>${item.name}</span>
+            <div class="quantity-controls">
+              <button class="quantity-button" onclick="updateQuantity('${item.name}', -1)">-</button>
+              <span>${item.quantity}</span>
+              <button class="quantity-button" onclick="updateQuantity('${item.name}', 1)">+</button>
+            </div>
+          </div>
+          <span>$${itemTotal.toFixed(2)}</span>
+        `;
+        cartItems.appendChild(li);
+      });
 
-            cart.forEach(item => {
-                const itemTotal = item.quantity * item.price * (1 - item.discount / 100);
-                total += itemTotal;
+      cartTotal.textContent = total.toFixed(2);
+    }
 
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <div class="cart-item-info">
-                        <span>${item.name}</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button" onclick="updateQuantity('${item.name}', -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-button" onclick="updateQuantity('${item.name}', 1)">+</button>
-                        </div>
-                    </div>
-                    <span>$${itemTotal.toFixed(2)}</span>
-                `;
-                cartItems.appendChild(li);
-            });
+    displayCart();
 
-            cartTotal.textContent = total.toFixed(2);
-        }
+    // "Enviar" button handler: send cart data to Google Sheets via the Apps Script web app
+    document.getElementById("sendExcelButton").addEventListener("click", async function() {
+      // Retrieve the cart data
+      let cart = getCart();
 
-        displayCart();
-    </script>
+      if (cart.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+
+      // Prepare the payload with the cart data and a timestamp (if needed)
+      let payload = {
+        cart: cart,
+        timestamp: new Date().toISOString()
+      };
+
+      // Replace with your Google Apps Script web app URL
+      const googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbz75iGvkvS-x2NHv0KhXKKyUYVhl55K0QKELAc4-0Ia_4cQ1DdNxIprnvJsVhMYz82fnQ/exec";
+
+      try {
+        let response = await fetch(googleAppsScriptUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        let result = await response.text();
+        console.log(result);
+        alert("Datos enviados a Google Sheets exitosamente!");
+      } catch (err) {
+        console.error("Error:", err);
+        alert("Error enviando datos a Google Sheets.");
+      }
+    });
+  </script>
 </body>
 </html>
